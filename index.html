@@ -1,0 +1,797 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leo Club Registration</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f6f8;
+    color:#171717;
+}
+
+/* HEADER */
+header{
+    background:#111;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#f5c400;
+}
+
+nav button{
+    border:none;
+    background:#f5c400;
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    min-height:430px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    background:linear-gradient(135deg,#111,#292929);
+    color:white;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#f5c400;
+}
+
+.hero p{
+    font-size:18px;
+    color:#ddd;
+    max-width:600px;
+    margin:auto;
+    line-height:1.6;
+}
+
+.btn{
+    margin-top:25px;
+    padding:14px 28px;
+    border:none;
+    border-radius:9px;
+    background:#f5c400;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* SECTION */
+section{
+    padding:60px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:32px;
+}
+
+/* FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.card .icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+/* FORM */
+.form-container{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+    font-size:15px;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#f5c400;
+}
+
+.submit-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:9px;
+    background:#111;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#f5c400;
+    color:#111;
+}
+
+/* SUCCESS */
+.success{
+    display:none;
+    text-align:center;
+    padding:40px;
+}
+
+.success-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+/* ADMIN */
+.admin{
+    display:none;
+    padding:40px 7%;
+}
+
+.dashboard-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.stat{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.stat h3{
+    color:#777;
+    font-size:15px;
+}
+
+.stat strong{
+    font-size:32px;
+    display:block;
+    margin-top:8px;
+}
+
+.search{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:9px;
+    margin-bottom:20px;
+}
+
+.table-box{
+    background:white;
+    border-radius:15px;
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:15px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+    white-space:nowrap;
+}
+
+th{
+    background:#111;
+    color:white;
+}
+
+.status{
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.pending{
+    background:#fff2b8;
+}
+
+.approved{
+    background:#d9f7df;
+}
+
+.rejected{
+    background:#ffd9d9;
+}
+
+.action-btn{
+    padding:7px 10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    margin:2px;
+}
+
+.approve{
+    background:#d9f7df;
+}
+
+.reject{
+    background:#ffd9d9;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    header{
+        padding:15px 5%;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-cards{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:45px 5%;
+    }
+
+    .form-container{
+        padding:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">🦁 <span>LEO</span> CLUB</div>
+
+    <nav>
+        <button onclick="showRegister()">Register Now</button>
+        <button onclick="showAdmin()">Admin</button>
+    </nav>
+</header>
+
+
+<!-- HOME -->
+<div id="home">
+
+<section class="hero">
+    <div>
+        <h1>Be a Part of <span>Something Greater</span></h1>
+
+        <p>
+            Join our Leo Club and become part of a community
+            dedicated to leadership, friendship and service.
+        </p>
+
+        <button class="btn" onclick="showRegister()">
+            JOIN THE CLUB →
+        </button>
+    </div>
+</section>
+
+
+<section>
+    <div class="section-title">
+        <h2>Why Join Our Leo Club?</h2>
+    </div>
+
+    <div class="features">
+
+        <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Make Friends</h3>
+            <p>Meet new people and build strong friendships.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌱</div>
+            <h3>Serve Community</h3>
+            <p>Take part in meaningful community projects.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏆</div>
+            <h3>Build Leadership</h3>
+            <p>Develop leadership and teamwork skills.</p>
+        </div>
+
+    </div>
+</section>
+
+</div>
+
+
+<!-- REGISTER -->
+<section id="register" style="display:none;">
+
+    <div class="section-title">
+        <h2>📝 Member Registration</h2>
+        <p>Fill in the details below.</p>
+    </div>
+
+    <div class="form-container">
+
+        <form id="registrationForm">
+
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Date of Birth *</label>
+                <input type="date" id="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <select id="gender">
+                    <option value="">Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Prefer not to say</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number *</label>
+                <input type="tel" id="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label>WhatsApp Number</label>
+                <input type="tel" id="whatsapp">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="email">
+            </div>
+
+            <div class="form-group">
+                <label>School / University *</label>
+                <input type="text" id="school" required>
+            </div>
+
+            <div class="form-group">
+                <label>Grade / Course</label>
+                <input type="text" id="course">
+            </div>
+
+            <div class="form-group">
+                <label>Are you already a Leo?</label>
+                <select id="leo">
+                    <option>New Member</option>
+                    <option>Existing Leo</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Parent / Guardian Name</label>
+                <input type="text" id="guardian">
+            </div>
+
+            <div class="form-group">
+                <label>Emergency Contact Number</label>
+                <input type="tel" id="emergency">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="consent" required>
+                    I confirm that the information provided is correct.
+                </label>
+            </div>
+
+            <button class="submit-btn" type="submit">
+                SUBMIT REGISTRATION
+            </button>
+
+        </form>
+
+
+        <div class="success" id="success">
+
+            <div class="success-icon">✅</div>
+
+            <h2>Registration Successful!</h2>
+
+            <p>Your registration has been received.</p>
+
+            <br>
+
+            <strong id="registrationID"></strong>
+
+            <br><br>
+
+            <button class="btn" onclick="showHome()">
+                Back to Home
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ADMIN -->
+<section class="admin" id="admin">
+
+    <div class="section-title">
+        <h2>🦁 Leo Club Admin Dashboard</h2>
+    </div>
+
+    <div class="dashboard-cards">
+
+        <div class="stat">
+            <h3>Total Members</h3>
+            <strong id="totalMembers">0</strong>
+        </div>
+
+        <div class="stat">
+            <h3>Pending</h3>
+            <strong id="pendingMembers">0</strong>
+        </div>
+
+        <div class="stat">
+            <h3>Approved</h3>
+            <strong id="approvedMembers">0</strong>
+        </div>
+
+    </div>
+
+
+    <input
+        class="search"
+        id="search"
+        placeholder="🔍 Search members..."
+        onkeyup="displayMembers()"
+    >
+
+
+    <div class="table-box">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>School</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="memberTable"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<footer>
+    🦁 Leo Club © 2026 | Together We Serve
+</footer>
+
+
+<script>
+
+let members = JSON.parse(localStorage.getItem("leoMembers")) || [];
+
+
+/* SHOW HOME */
+function showHome(){
+
+    document.getElementById("home").style.display="block";
+    document.getElementById("register").style.display="none";
+    document.getElementById("admin").style.display="none";
+
+    window.scrollTo(0,0);
+}
+
+
+/* SHOW REGISTER */
+function showRegister(){
+
+    document.getElementById("home").style.display="none";
+    document.getElementById("register").style.display="block";
+    document.getElementById("admin").style.display="none";
+
+    window.scrollTo(0,0);
+}
+
+
+/* SHOW ADMIN */
+function showAdmin(){
+
+    document.getElementById("home").style.display="none";
+    document.getElementById("register").style.display="none";
+    document.getElementById("admin").style.display="block";
+
+    displayMembers();
+
+    window.scrollTo(0,0);
+}
+
+
+/* REGISTRATION */
+document.getElementById("registrationForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    let id =
+        "LEO-" +
+        String(members.length + 1).padStart(4,"0");
+
+    let member = {
+
+        id:id,
+
+        name:document.getElementById("name").value,
+
+        dob:document.getElementById("dob").value,
+
+        gender:document.getElementById("gender").value,
+
+        phone:document.getElementById("phone").value,
+
+        whatsapp:document.getElementById("whatsapp").value,
+
+        email:document.getElementById("email").value,
+
+        school:document.getElementById("school").value,
+
+        course:document.getElementById("course").value,
+
+        leo:document.getElementById("leo").value,
+
+        guardian:document.getElementById("guardian").value,
+
+        emergency:document.getElementById("emergency").value,
+
+        status:"Pending",
+
+        createdAt:new Date().toLocaleString()
+
+    };
+
+
+    members.push(member);
+
+    localStorage.setItem(
+        "leoMembers",
+        JSON.stringify(members)
+    );
+
+
+    document.getElementById("registrationForm")
+        .style.display="none";
+
+    document.getElementById("success")
+        .style.display="block";
+
+    document.getElementById("registrationID")
+        .innerText="Registration ID: " + id;
+
+});
+
+
+/* DISPLAY MEMBERS */
+function displayMembers(){
+
+    let table =
+        document.getElementById("memberTable");
+
+    let search =
+        document.getElementById("search").value.toLowerCase();
+
+    table.innerHTML="";
+
+
+    let filtered = members.filter(member =>
+
+        member.name.toLowerCase().includes(search) ||
+
+        member.phone.toLowerCase().includes(search) ||
+
+        member.school.toLowerCase().includes(search)
+
+    );
+
+
+    filtered.forEach((member,index)=>{
+
+        let row = document.createElement("tr");
+
+        row.innerHTML=`
+
+            <td>${member.id}</td>
+
+            <td>${member.name}</td>
+
+            <td>${member.phone}</td>
+
+            <td>${member.school}</td>
+
+            <td>
+                <span class="status
+                ${member.status.toLowerCase()}">
+                    ${member.status}
+                </span>
+            </td>
+
+            <td>
+
+                <button
+                    class="action-btn approve"
+                    onclick="approveMember(${index})">
+                    ✓
+                </button>
+
+                <button
+                    class="action-btn reject"
+                    onclick="rejectMember(${index})">
+                    ✕
+                </button>
+
+            </td>
+
+        `;
+
+        table.appendChild(row);
+
+    });
+
+
+    updateStats();
+}
+
+
+/* APPROVE */
+function approveMember(index){
+
+    members[index].status="Approved";
+
+    localStorage.setItem(
+        "leoMembers",
+        JSON.stringify(members)
+    );
+
+    displayMembers();
+}
+
+
+/* REJECT */
+function rejectMember(index){
+
+    members[index].status="Rejected";
+
+    localStorage.setItem(
+        "leoMembers",
+        JSON.stringify(members)
+    );
+
+    displayMembers();
+}
+
+
+/* STATS */
+function updateStats(){
+
+    document.getElementById("totalMembers")
+        .innerText=members.length;
+
+    document.getElementById("pendingMembers")
+        .innerText=
+        members.filter(m=>m.status==="Pending").length;
+
+    document.getElementById("approvedMembers")
+        .innerText=
+        members.filter(m=>m.status==="Approved").length;
+}
+
+
+/* START */
+updateStats();
+
+</script>
+
+</body>
+</html>
+```
