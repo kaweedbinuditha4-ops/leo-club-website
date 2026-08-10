@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,10 +19,8 @@
 
 body{
     background:#f5f6f8;
-    color:#171717;
+    color:#222;
 }
-
-/* HEADER */
 
 header{
     background:#111;
@@ -38,107 +35,124 @@ header{
 }
 
 .logo{
-    font-size:23px;
+    font-size:25px;
     font-weight:bold;
 }
 
 .logo span{
-    color:#f5c400;
+    color:#f4c430;
 }
 
 nav{
     display:flex;
-    gap:8px;
+    gap:10px;
 }
 
 nav button{
-    border:none;
-    background:#f5c400;
-    padding:10px 17px;
-    border-radius:8px;
-    font-weight:bold;
+    border:0;
+    background:transparent;
+    color:white;
+    padding:10px 15px;
     cursor:pointer;
+    font-size:15px;
+    border-radius:7px;
 }
 
-/* HERO */
+nav button:hover{
+    background:#f4c430;
+    color:#111;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
 
 .hero{
-    min-height:430px;
+    min-height:520px;
+    padding:80px 7%;
     display:flex;
-    justify-content:center;
     align-items:center;
-    text-align:center;
-    padding:40px 20px;
     background:linear-gradient(135deg,#111,#292929);
     color:white;
 }
 
 .hero h1{
-    font-size:48px;
-    margin-bottom:15px;
+    font-size:55px;
+    max-width:750px;
+    line-height:1.1;
 }
 
 .hero h1 span{
-    color:#f5c400;
+    color:#f4c430;
+    display:block;
 }
 
 .hero p{
+    max-width:650px;
+    margin:25px 0;
     font-size:18px;
+    line-height:1.7;
     color:#ddd;
-    max-width:600px;
-    margin:auto;
-    line-height:1.6;
 }
 
 .btn{
-    margin-top:25px;
-    padding:14px 28px;
-    border:none;
-    border-radius:9px;
-    background:#f5c400;
+    border:0;
+    background:#f4c430;
+    color:#111;
+    padding:15px 25px;
+    border-radius:8px;
     font-weight:bold;
-    font-size:16px;
     cursor:pointer;
 }
 
-/* SECTIONS */
-
-section{
-    padding:60px 7%;
+.section{
+    padding:70px 7%;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:35px;
+    margin-bottom:40px;
 }
 
 .section-title h2{
-    font-size:32px;
+    font-size:35px;
+    margin-bottom:10px;
 }
 
-/* FEATURES */
+.section-title p{
+    color:#777;
+}
 
 .features{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:25px;
 }
 
 .card{
     background:white;
-    padding:30px;
+    padding:35px;
     border-radius:15px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
     text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.card .icon{
-    font-size:38px;
+.icon{
+    font-size:45px;
     margin-bottom:15px;
 }
 
 .card h3{
     margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.6;
 }
 
 /* FORM */
@@ -148,8 +162,8 @@ section{
     margin:auto;
     background:white;
     padding:35px;
-    border-radius:18px;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
+    border-radius:15px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 
 .form-group{
@@ -158,109 +172,102 @@ section{
 
 .form-group label{
     display:block;
-    font-weight:bold;
     margin-bottom:7px;
+    font-weight:bold;
 }
 
-.form-group input,
-.form-group select{
+input,
+select{
     width:100%;
     padding:13px;
     border:1px solid #ddd;
-    border-radius:8px;
+    border-radius:7px;
     outline:none;
     font-size:15px;
 }
 
-.form-group input:focus,
-.form-group select:focus{
-    border-color:#f5c400;
+input:focus,
+select:focus{
+    border-color:#f4c430;
 }
 
-.submit-btn{
+.checkbox{
+    display:flex !important;
+    gap:10px;
+    align-items:flex-start;
+    font-weight:normal !important;
+}
+
+.checkbox input{
+    width:auto;
+    margin-top:4px;
+}
+
+.submit-btn,
+.login-btn{
     width:100%;
-    padding:14px;
-    border:none;
-    border-radius:9px;
+    padding:15px;
+    border:0;
+    border-radius:8px;
     background:#111;
     color:white;
-    font-size:16px;
-    font-weight:bold;
     cursor:pointer;
+    font-weight:bold;
 }
 
-.submit-btn:hover{
-    background:#f5c400;
+.submit-btn:hover,
+.login-btn:hover{
+    background:#f4c430;
     color:#111;
 }
-
-/* SUCCESS */
 
 .success{
     display:none;
     text-align:center;
-    padding:40px;
+    padding:40px 10px;
 }
 
 .success-icon{
-    font-size:55px;
-    margin-bottom:15px;
+    font-size:60px;
 }
 
 /* LOGIN */
-
-.login-section{
-    display:none;
-}
 
 .login-box{
     max-width:450px;
     margin:auto;
     background:white;
     padding:35px;
-    border-radius:18px;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
-}
-
-.login-box h2{
-    margin-bottom:25px;
-    text-align:center;
+    border-radius:15px;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 
 .login-box input{
-    width:100%;
-    padding:14px;
     margin-bottom:15px;
-    border:1px solid #ddd;
-    border-radius:8px;
-}
-
-.login-btn{
-    width:100%;
-    padding:14px;
-    background:#111;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.login-btn:hover{
-    background:#f5c400;
-    color:#111;
 }
 
 .error{
     color:#d00;
-    text-align:center;
     margin-top:15px;
+    text-align:center;
 }
 
-/* ADMIN */
+/* DASHBOARD */
 
-.admin{
-    display:none;
+.admin-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.logout{
+    border:0;
+    padding:12px 20px;
+    border-radius:7px;
+    background:#d33;
+    color:white;
+    cursor:pointer;
 }
 
 .dashboard-cards{
@@ -273,54 +280,32 @@ section{
 .stat{
     background:white;
     padding:25px;
-    border-radius:15px;
+    border-radius:12px;
     box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.stat h3{
-    color:#777;
-    font-size:15px;
-}
-
 .stat strong{
-    font-size:32px;
     display:block;
-    margin-top:8px;
-}
-
-.admin-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.logout{
-    border:none;
-    padding:10px 17px;
-    background:#111;
-    color:white;
-    border-radius:8px;
-    cursor:pointer;
+    font-size:35px;
+    margin-top:10px;
+    color:#f0b900;
 }
 
 .search{
-    width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    border-radius:9px;
     margin-bottom:20px;
 }
 
 .table-box{
     background:white;
-    border-radius:15px;
+    border-radius:12px;
     overflow:auto;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 table{
     width:100%;
     border-collapse:collapse;
+    min-width:700px;
 }
 
 th,
@@ -328,7 +313,6 @@ td{
     padding:15px;
     text-align:left;
     border-bottom:1px solid #eee;
-    white-space:nowrap;
 }
 
 th{
@@ -336,115 +320,90 @@ th{
     color:white;
 }
 
+.action-btn{
+    padding:7px 12px;
+    border:0;
+    border-radius:6px;
+    cursor:pointer;
+    background:#f4c430;
+}
+
 .status{
-    padding:6px 10px;
+    padding:5px 9px;
     border-radius:20px;
     font-size:12px;
-    font-weight:bold;
-}
-
-.pending{
-    background:#fff2b8;
-}
-
-.approved{
-    background:#d9f7df;
-}
-
-.rejected{
-    background:#ffd9d9;
-}
-
-.action-btn{
-    padding:7px 10px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    margin:2px;
-}
-
-.approve{
-    background:#d9f7df;
-}
-
-.reject{
-    background:#ffd9d9;
-}
-
-.view{
-    background:#e7e7e7;
-}
-
-/* MEMBER MODAL */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.6);
-    z-index:500;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-.modal-box{
-    background:white;
-    max-width:600px;
-    width:100%;
-    max-height:90vh;
-    overflow:auto;
-    border-radius:15px;
-    padding:30px;
-}
-
-.modal-box h2{
-    margin-bottom:20px;
-}
-
-.detail{
-    padding:10px 0;
-    border-bottom:1px solid #eee;
-}
-
-.close{
-    float:right;
-    border:none;
     background:#eee;
-    padding:7px 12px;
-    border-radius:6px;
-    cursor:pointer;
 }
-
-/* FOOTER */
 
 footer{
     background:#111;
     color:white;
     text-align:center;
     padding:25px;
-    margin-top:50px;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    align-items:center;
+    justify-content:center;
+    z-index:500;
+    padding:20px;
+}
+
+.modal-box{
+    background:white;
+    max-width:650px;
+    width:100%;
+    max-height:85vh;
+    overflow:auto;
+    padding:30px;
+    border-radius:15px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:15px;
+    border:0;
+    background:#eee;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.detail{
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.detail strong{
+    display:inline-block;
+    width:180px;
 }
 
 /* MOBILE */
 
-@media(max-width:768px){
+@media(max-width:800px){
 
     header{
-        padding:15px 5%;
+        flex-direction:column;
+        gap:15px;
     }
 
-    .logo{
-        font-size:18px;
-    }
-
-    nav button{
-        padding:8px 10px;
-        font-size:12px;
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
     .hero h1{
-        font-size:34px;
+        font-size:40px;
     }
 
     .features{
@@ -455,19 +414,8 @@ footer{
         grid-template-columns:1fr;
     }
 
-    section{
+    .section{
         padding:45px 5%;
-    }
-
-    .form-container,
-    .login-box{
-        padding:22px;
-    }
-
-    .admin-top{
-        flex-direction:column;
-        gap:15px;
-        align-items:flex-start;
     }
 
 }
@@ -476,7 +424,6 @@ footer{
 </head>
 
 <body>
-
 
 <header>
 
@@ -505,565 +452,569 @@ footer{
 
 <!-- ================= HOME ================= -->
 
-<div id="home">
+<div id="homePage" class="page active">
 
-<section class="hero">
+    <section class="hero">
 
-    <div>
+        <div>
 
-        <h1>
-            Be a Part of
-            <span>Something Greater</span>
-        </h1>
-
-        <p>
-            Join our Leo Club and become part of a community
-            dedicated to leadership, friendship and service.
-        </p>
-
-        <button class="btn" onclick="showRegister()">
-            JOIN THE CLUB →
-        </button>
-
-    </div>
-
-</section>
-
-
-<section>
-
-    <div class="section-title">
-
-        <h2>
-            Why Join Our Leo Club?
-        </h2>
-
-    </div>
-
-
-    <div class="features">
-
-        <div class="card">
-
-            <div class="icon">
-                🤝
-            </div>
-
-            <h3>
-                Make Friends
-            </h3>
+            <h1>
+                Be a Part of
+                <span>Something Greater</span>
+            </h1>
 
             <p>
-                Meet new people and build strong friendships.
+                Join our Leo Club and become part of a community
+                dedicated to leadership, friendship and service.
             </p>
+
+            <button class="btn" onclick="showRegister()">
+                JOIN THE CLUB →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>
+                Why Join Our Leo Club?
+            </h2>
 
         </div>
 
 
-        <div class="card">
+        <div class="features">
 
-            <div class="icon">
-                🌱
+            <div class="card">
+
+                <div class="icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Make Friends
+                </h3>
+
+                <p>
+                    Meet new people and build strong friendships.
+                </p>
+
             </div>
 
-            <h3>
-                Serve Community
-            </h3>
 
-            <p>
-                Take part in meaningful community projects.
-            </p>
+            <div class="card">
+
+                <div class="icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Serve Community
+                </h3>
+
+                <p>
+                    Take part in meaningful community projects.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Build Leadership
+                </h3>
+
+                <p>
+                    Develop leadership and teamwork skills.
+                </p>
+
+            </div>
 
         </div>
 
-
-        <div class="card">
-
-            <div class="icon">
-                🏆
-            </div>
-
-            <h3>
-                Build Leadership
-            </h3>
-
-            <p>
-                Develop leadership and teamwork skills.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 </div>
 
 
 <!-- ================= REGISTER ================= -->
 
-<section id="register" style="display:none;">
+<div id="registerPage" class="page">
 
-    <div class="section-title">
+    <section class="section">
 
-        <h2>
-            📝 Member Registration
-        </h2>
-
-        <p>
-            Fill in the details below.
-        </p>
-
-    </div>
-
-
-    <div class="form-container">
-
-        <form id="registrationForm">
-
-
-            <div class="form-group">
-
-                <label>
-                    Full Name *
-                </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Date of Birth *
-                </label>
-
-                <input
-                    type="date"
-                    id="dob"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Gender
-                </label>
-
-                <select id="gender">
-
-                    <option value="">
-                        Select
-                    </option>
-
-                    <option>
-                        Male
-                    </option>
-
-                    <option>
-                        Female
-                    </option>
-
-                    <option>
-                        Prefer not to say
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Mobile Number *
-                </label>
-
-                <input
-                    type="tel"
-                    id="phone"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    WhatsApp Number
-                </label>
-
-                <input
-                    type="tel"
-                    id="whatsapp"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Email
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    School / University *
-                </label>
-
-                <input
-                    type="text"
-                    id="school"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Grade / Course
-                </label>
-
-                <input
-                    type="text"
-                    id="course"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Leo Status
-                </label>
-
-                <select id="leo">
-
-                    <option>
-                        New Member
-                    </option>
-
-                    <option>
-                        Existing Leo
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Parent / Guardian Name
-                </label>
-
-                <input
-                    type="text"
-                    id="guardian"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Emergency Contact Number
-                </label>
-
-                <input
-                    type="tel"
-                    id="emergency"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-
-                    <input
-                        type="checkbox"
-                        id="consent"
-                        required
-                    >
-
-                    I confirm that the information provided
-                    is correct.
-
-                </label>
-
-            </div>
-
-
-            <button
-                class="submit-btn"
-                type="submit"
-                id="submitButton"
-            >
-
-                SUBMIT REGISTRATION
-
-            </button>
-
-
-        </form>
-
-
-        <div
-            class="success"
-            id="success"
-        >
-
-            <div class="success-icon">
-                ✅
-            </div>
+        <div class="section-title">
 
             <h2>
-                Registration Successful!
+                📝 Member Registration
             </h2>
 
             <p>
-                Your registration has been received.
+                Fill in the details below.
             </p>
-
-            <br>
-
-            <strong id="registrationID"></strong>
-
-            <br><br>
-
-            <button
-                class="btn"
-                onclick="showHome()"
-            >
-                Back to Home
-            </button>
 
         </div>
 
-    </div>
 
-</section>
+        <div class="form-container">
+
+            <form id="registrationForm">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Date of Birth *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Gender
+                    </label>
+
+                    <select id="gender">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                        <option value="Prefer not to say">
+                            Prefer not to say
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Mobile Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        WhatsApp Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="whatsapp"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        School / University *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="school"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Grade / Course
+                    </label>
+
+                    <input
+                        type="text"
+                        id="course"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Leo Status
+                    </label>
+
+                    <select id="leo">
+
+                        <option value="New Member">
+                            New Member
+                        </option>
+
+                        <option value="Existing Leo">
+                            Existing Leo
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Parent / Guardian Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="guardian"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Emergency Contact Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="emergency"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="consent"
+                            required
+                        >
+
+                        <span>
+                            I confirm that the information provided
+                            is correct.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    class="submit-btn"
+                    type="submit"
+                    id="submitButton"
+                >
+                    SUBMIT REGISTRATION
+                </button>
+
+            </form>
+
+
+            <div
+                class="success"
+                id="success"
+            >
+
+                <div class="success-icon">
+                    ✅
+                </div>
+
+                <h2>
+                    Registration Successful!
+                </h2>
+
+                <p>
+                    Your registration has been received.
+                </p>
+
+                <br>
+
+                <strong id="registrationID"></strong>
+
+                <br><br>
+
+                <button
+                    class="btn"
+                    onclick="showHome()"
+                >
+                    Back to Home
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
 
 
 <!-- ================= ADMIN LOGIN ================= -->
 
-<section
-    id="loginSection"
-    class="login-section"
->
+<div id="loginPage" class="page">
 
-    <div class="section-title">
+    <section class="section">
 
-        <h2>
-            🔐 Admin Login
-        </h2>
-
-        <p>
-            Authorized administrators only.
-        </p>
-
-    </div>
-
-
-    <div class="login-box">
-
-        <h2>
-            Leo Club Admin
-        </h2>
-
-
-        <form id="loginForm">
-
-            <input
-                type="email"
-                id="adminEmail"
-                placeholder="Admin Email"
-                required
-            >
-
-            <input
-                type="password"
-                id="adminPassword"
-                placeholder="Password"
-                required
-            >
-
-            <button
-                class="login-btn"
-                type="submit"
-            >
-                LOGIN
-            </button>
-
-        </form>
-
-
-        <p
-            class="error"
-            id="loginError"
-        ></p>
-
-    </div>
-
-</section>
-
-
-<!-- ================= ADMIN DASHBOARD ================= -->
-
-<section
-    id="admin"
-    class="admin"
->
-
-    <div class="admin-top">
-
-        <div>
+        <div class="section-title">
 
             <h2>
-                🦁 Admin Dashboard
+                🔐 Admin Login
             </h2>
 
-            <p id="adminEmailDisplay"></p>
+            <p>
+                Authorized administrators only.
+            </p>
 
         </div>
 
 
-        <button
-            class="logout"
-            onclick="logout()"
+        <div class="login-box">
+
+            <h2>
+                Leo Club Admin
+            </h2>
+
+            <br>
+
+            <form id="loginForm">
+
+                <input
+                    type="email"
+                    id="adminEmail"
+                    placeholder="Admin Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Password"
+                    required
+                >
+
+                <button
+                    class="login-btn"
+                    type="submit"
+                >
+                    LOGIN
+                </button>
+
+            </form>
+
+            <p
+                class="error"
+                id="loginError"
+            ></p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<div id="dashboardPage" class="page">
+
+    <section class="section">
+
+        <div class="admin-top">
+
+            <div>
+
+                <h2>
+                    🦁 Admin Dashboard
+                </h2>
+
+                <p id="adminEmailDisplay"></p>
+
+            </div>
+
+
+            <button
+                class="logout"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-cards">
+
+            <div class="stat">
+
+                <h3>
+                    Total Members
+                </h3>
+
+                <strong id="totalMembers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    Pending
+                </h3>
+
+                <strong id="pendingMembers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    Approved
+                </h3>
+
+                <strong id="approvedMembers">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <input
+            class="search"
+            id="search"
+            placeholder="🔍 Search members..."
+            oninput="filterMembers()"
         >
-            Logout
-        </button>
-
-    </div>
 
 
-    <div class="dashboard-cards">
+        <div class="table-box">
 
-        <div class="stat">
+            <table>
 
-            <h3>
-                Total Members
-            </h3>
+                <thead>
 
-            <strong id="totalMembers">
-                0
-            </strong>
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Name
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                        <th>
+                            School
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="memberTable">
+
+                </tbody>
+
+            </table>
 
         </div>
 
+    </section>
 
-        <div class="stat">
-
-            <h3>
-                Pending
-            </h3>
-
-            <strong id="pendingMembers">
-                0
-            </strong>
-
-        </div>
+</div>
 
 
-        <div class="stat">
-
-            <h3>
-                Approved
-            </h3>
-
-            <strong id="approvedMembers">
-                0
-            </strong>
-
-        </div>
-
-    </div>
-
-
-    <input
-        class="search"
-        id="search"
-        placeholder="🔍 Search members..."
-        oninput="filterMembers()"
-    >
-
-
-    <div class="table-box">
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>
-                        ID
-                    </th>
-
-                    <th>
-                        Name
-                    </th>
-
-                    <th>
-                        Phone
-                    </th>
-
-                    <th>
-                        School
-                    </th>
-
-                    <th>
-                        Status
-                    </th>
-
-                    <th>
-                        Action
-                    </th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody id="memberTable">
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</section>
-
-
-<!-- ================= MEMBER MODAL ================= -->
+<!-- ================= MODAL ================= -->
 
 <div
     class="modal"
@@ -1083,6 +1034,8 @@ footer{
             Member Details
         </h2>
 
+        <br>
+
         <div id="memberDetails"></div>
 
     </div>
@@ -1100,359 +1053,320 @@ footer{
 
 <script>
 
-/* =========================================
-   SUPABASE CONFIG
-   ========================================= */
-
-/*
-   IMPORTANT:
-   Replace these two values with
-   your Supabase Project URL and
-   Publishable/Anon key.
-*/
+/* =====================================================
+   SUPABASE CONFIGURATION
+===================================================== */
 
 const SUPABASE_URL =
     "https://hxaqbnogyqzzfewgtdgd.supabase.co";
 
-const SUPABASE_KEY =
+const SUPABASE_ANON_KEY =
     "sb_publishable_z1F0WgdC5WBtIFO9BGIpaw_dcjDyhXj";
 
 
-const client =
+const supabaseClient =
     window.supabase.createClient(
         SUPABASE_URL,
-        SUPABASE_KEY
+        SUPABASE_ANON_KEY
     );
 
 
-/* =========================================
-   VARIABLES
-   ========================================= */
-
-let members = [];
-
-let currentUser = null;
-
-
-/* =========================================
+/* =====================================================
    PAGE NAVIGATION
-   ========================================= */
+===================================================== */
 
-function hideAll(){
+function hideAllPages(){
 
-    document.getElementById("home")
-        .style.display = "none";
+    document
+    .querySelectorAll(".page")
+    .forEach(page => {
 
-    document.getElementById("register")
-        .style.display = "none";
+        page.classList.remove("active");
 
-    document.getElementById("loginSection")
-        .style.display = "none";
-
-    document.getElementById("admin")
-        .style.display = "none";
+    });
 
 }
 
 
 function showHome(){
 
-    hideAll();
+    hideAllPages();
 
-    document.getElementById("home")
-        .style.display = "block";
-
-    window.scrollTo(0,0);
+    document
+    .getElementById("homePage")
+    .classList.add("active");
 
 }
 
 
 function showRegister(){
 
-    hideAll();
+    hideAllPages();
 
-    document.getElementById("register")
-        .style.display = "block";
-
-    window.scrollTo(0,0);
+    document
+    .getElementById("registerPage")
+    .classList.add("active");
 
 }
 
 
 function showLogin(){
 
-    hideAll();
+    hideAllPages();
 
-    document.getElementById("loginSection")
-        .style.display = "block";
-
-    document.getElementById("loginError")
-        .innerText = "";
-
-    window.scrollTo(0,0);
+    document
+    .getElementById("loginPage")
+    .classList.add("active");
 
 }
 
 
-/* =========================================
+/* =====================================================
    MEMBER REGISTRATION
-   ========================================= */
+===================================================== */
 
 document
 .getElementById("registrationForm")
-.addEventListener("submit", async function(e){
+.addEventListener("submit", async function(event){
 
-    e.preventDefault();
+    event.preventDefault();
 
 
     const button =
         document.getElementById("submitButton");
 
+
     button.disabled = true;
 
-    button.innerText = "SUBMITTING...";
+    button.textContent =
+        "SUBMITTING...";
 
 
-    const member = {
+    try{
 
-        full_name:
-            document.getElementById("name").value.trim(),
+        const member = {
 
-        date_of_birth:
-            document.getElementById("dob").value,
+            full_name:
+                document
+                .getElementById("name")
+                .value
+                .trim(),
 
-        gender:
-            document.getElementById("gender").value,
+            dob:
+                document
+                .getElementById("dob")
+                .value,
 
-        mobile:
-            document.getElementById("phone").value.trim(),
+            gender:
+                document
+                .getElementById("gender")
+                .value,
 
-        whatsapp:
-            document.getElementById("whatsapp").value.trim(),
+            phone:
+                document
+                .getElementById("phone")
+                .value
+                .trim(),
 
-        email:
-            document.getElementById("email").value.trim(),
+            whatsapp:
+                document
+                .getElementById("whatsapp")
+                .value
+                .trim(),
 
-        school:
-            document.getElementById("school").value.trim(),
+            email:
+                document
+                .getElementById("email")
+                .value
+                .trim(),
 
-        course:
-            document.getElementById("course").value.trim(),
+            school:
+                document
+                .getElementById("school")
+                .value
+                .trim(),
 
-        leo_status:
-            document.getElementById("leo").value,
+            course:
+                document
+                .getElementById("course")
+                .value
+                .trim(),
 
-        guardian_name:
-            document.getElementById("guardian").value.trim(),
+            leo_status:
+                document
+                .getElementById("leo")
+                .value,
 
-        emergency_contact:
-            document.getElementById("emergency").value.trim(),
+            guardian:
+                document
+                .getElementById("guardian")
+                .value
+                .trim(),
 
-        status:
-            "Pending"
+            emergency:
+                document
+                .getElementById("emergency")
+                .value
+                .trim(),
 
-    };
+            status:
+                "Pending"
 
-
-    const { data, error } =
-        await client
-        .from("members")
-        .insert(member)
-        .select("registration_id")
-        .single();
+        };
 
 
-    if(error){
+        console.log("Sending member:", member);
+
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("members")
+            .insert(member)
+            .select()
+            .single();
+
+
+        if(error){
+
+            console.error(
+                "SUPABASE ERROR:",
+                error
+            );
+
+            throw error;
+
+        }
+
+
+        document
+        .getElementById("registrationForm")
+        .style.display = "none";
+
+
+        document
+        .getElementById("success")
+        .style.display = "block";
+
+
+        document
+        .getElementById("registrationID")
+        .textContent =
+            "Registration ID: " + data.id;
+
+
+    }
+
+    catch(error){
 
         console.error(error);
+
 
         alert(
             "Registration failed.\n\n" +
             error.message
         );
 
-        button.disabled = false;
-
-        button.innerText =
-            "SUBMIT REGISTRATION";
-
-        return;
-
     }
 
+    finally{
 
-    document
-        .getElementById("registrationForm")
-        .style.display = "none";
+        button.disabled = false;
 
+        button.textContent =
+            "SUBMIT REGISTRATION";
 
-    document
-        .getElementById("success")
-        .style.display = "block";
-
-
-    document
-        .getElementById("registrationID")
-        .innerText =
-        "Registration ID: LEO-" +
-        String(data.registration_id)
-            .padStart(4,"0");
-
+    }
 
 });
 
 
-/* =========================================
+/* =====================================================
    ADMIN LOGIN
-   ========================================= */
+===================================================== */
 
 document
 .getElementById("loginForm")
-.addEventListener("submit", async function(e){
+.addEventListener("submit", async function(event){
 
-    e.preventDefault();
+    event.preventDefault();
 
 
     const email =
-        document.getElementById("adminEmail")
-            .value.trim();
+        document
+        .getElementById("adminEmail")
+        .value
+        .trim();
 
 
     const password =
-        document.getElementById("adminPassword")
-            .value;
+        document
+        .getElementById("adminPassword")
+        .value;
 
 
-    const errorBox =
-        document.getElementById("loginError");
+    const loginError =
+        document
+        .getElementById("loginError");
 
 
-    errorBox.innerText =
+    loginError.textContent =
         "Logging in...";
-
-
-    const { data, error } =
-        await client.auth.signInWithPassword({
-
-            email: email,
-
-            password: password
-
-        });
-
-
-    if(error){
-
-        errorBox.innerText =
-            "Invalid email or password.";
-
-        return;
-
-    }
-
-
-    currentUser = data.user;
-
-
-    await openDashboard();
-
-});
-
-
-/* =========================================
-   CHECK ADMIN
-   ========================================= */
-
-async function checkAdmin(){
-
-    const {
-        data:{
-            session
-        }
-    } = await client.auth.getSession();
-
-
-    if(!session){
-
-        return false;
-
-    }
 
 
     const {
         data,
         error
     } =
-        await client
-        .from("admin_users")
-        .select("id")
-        .eq("id", session.user.id)
-        .maybeSingle();
+    await supabaseClient.auth
+    .signInWithPassword({
+
+        email:email,
+
+        password:password
+
+    });
 
 
-    if(error || !data){
+    if(error){
 
-        await client.auth.signOut();
-
-        return false;
-
-    }
-
-
-    currentUser = session.user;
-
-    return true;
-
-}
-
-
-/* =========================================
-   OPEN DASHBOARD
-   ========================================= */
-
-async function openDashboard(){
-
-    const admin =
-        await checkAdmin();
-
-
-    if(!admin){
-
-        document
-            .getElementById("loginError")
-            .innerText =
-            "This account is not an authorized admin.";
+        loginError.textContent =
+            error.message;
 
         return;
 
     }
 
 
-    hideAll();
+    loginError.textContent = "";
 
 
     document
-        .getElementById("admin")
-        .style.display = "block";
+    .getElementById("adminEmailDisplay")
+    .textContent =
+        data.user.email;
+
+
+    hideAllPages();
 
 
     document
-        .getElementById("adminEmailDisplay")
-        .innerText =
-        currentUser.email;
+    .getElementById("dashboardPage")
+    .classList.add("active");
 
 
     await loadMembers();
 
-
-    window.scrollTo(0,0);
-
-}
+});
 
 
-/* =========================================
+/* =====================================================
    LOAD MEMBERS
-   ========================================= */
+===================================================== */
+
+let allMembers = [];
+
 
 async function loadMembers(){
 
@@ -1460,15 +1374,15 @@ async function loadMembers(){
         data,
         error
     } =
-        await client
-        .from("members")
-        .select("*")
-        .order(
-            "created_at",
-            {
-                ascending:false
-            }
-        );
+    await supabaseClient
+    .from("members")
+    .select("*")
+    .order(
+        "created_at",
+        {
+            ascending:false
+        }
+    );
 
 
     if(error){
@@ -1476,7 +1390,8 @@ async function loadMembers(){
         console.error(error);
 
         alert(
-            "Could not load members."
+            "Could not load members.\n\n" +
+            error.message
         );
 
         return;
@@ -1484,71 +1399,61 @@ async function loadMembers(){
     }
 
 
-    members = data || [];
+    allMembers =
+        data || [];
 
 
-    displayMembers();
+    displayMembers(
+        allMembers
+    );
+
+
+    updateStats(
+        allMembers
+    );
 
 }
 
 
-/* =========================================
+/* =====================================================
    DISPLAY MEMBERS
-   ========================================= */
+===================================================== */
 
-function displayMembers(){
+function displayMembers(members){
 
     const table =
-        document.getElementById("memberTable");
+        document
+        .getElementById("memberTable");
 
 
     table.innerHTML = "";
 
 
-    const search =
-        document.getElementById("search")
-            .value
-            .toLowerCase();
+    if(members.length === 0){
+
+        table.innerHTML = `
+            <tr>
+                <td colspan="6" style="text-align:center">
+                    No members found.
+                </td>
+            </tr>
+        `;
+
+        return;
+
+    }
 
 
-    const filtered =
-        members.filter(member =>
-
-            member.full_name
-                .toLowerCase()
-                .includes(search)
-
-            ||
-
-            member.mobile
-                .toLowerCase()
-                .includes(search)
-
-            ||
-
-            member.school
-                .toLowerCase()
-                .includes(search)
-
-        );
-
-
-    filtered.forEach(member => {
+    members.forEach(member => {
 
         const row =
             document.createElement("tr");
 
 
-        const registrationId =
-            "LEO-" +
-            String(member.registration_id)
-                .padStart(4,"0");
-
-
         row.innerHTML = `
 
             <td>
-                ${registrationId}
+                ${escapeHTML(member.id)}
             </td>
 
             <td>
@@ -1556,58 +1461,29 @@ function displayMembers(){
             </td>
 
             <td>
-                ${escapeHTML(member.mobile)}
+                ${escapeHTML(member.phone || "")}
             </td>
 
             <td>
-                ${escapeHTML(member.school)}
+                ${escapeHTML(member.school || "")}
             </td>
 
             <td>
-
-                <span class="status
-                    ${member.status.toLowerCase()}">
-
-                    ${member.status}
-
+                <span class="status">
+                    ${escapeHTML(
+                        member.status || "Pending"
+                    )}
                 </span>
-
             </td>
 
             <td>
 
                 <button
-                    class="action-btn view"
+                    class="action-btn"
                     onclick="viewMember('${member.id}')"
                 >
-                    VIEW
+                    View
                 </button>
-
-                ${
-                    member.status !== "Approved"
-                    ?
-                    `<button
-                        class="action-btn approve"
-                        onclick="updateStatus('${member.id}','Approved')"
-                    >
-                        ✓
-                    </button>`
-                    :
-                    ""
-                }
-
-                ${
-                    member.status !== "Rejected"
-                    ?
-                    `<button
-                        class="action-btn reject"
-                        onclick="updateStatus('${member.id}','Rejected')"
-                    >
-                        ✕
-                    </button>`
-                    :
-                    ""
-                }
 
             </td>
 
@@ -1618,259 +1494,296 @@ function displayMembers(){
 
     });
 
+}
 
-    updateStats();
+
+/* =====================================================
+   DASHBOARD STATISTICS
+===================================================== */
+
+function updateStats(members){
+
+    document
+    .getElementById("totalMembers")
+    .textContent =
+        members.length;
+
+
+    document
+    .getElementById("pendingMembers")
+    .textContent =
+        members.filter(
+            member =>
+                String(member.status)
+                .toLowerCase()
+                === "pending"
+        ).length;
+
+
+    document
+    .getElementById("approvedMembers")
+    .textContent =
+        members.filter(
+            member =>
+                String(member.status)
+                .toLowerCase()
+                === "approved"
+        ).length;
 
 }
 
 
-/* =========================================
+/* =====================================================
    SEARCH
-   ========================================= */
+===================================================== */
 
 function filterMembers(){
 
-    displayMembers();
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    const filtered =
+        allMembers.filter(member => {
+
+            return (
+
+                String(
+                    member.full_name || ""
+                )
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                String(
+                    member.phone || ""
+                )
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                String(
+                    member.school || ""
+                )
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                String(
+                    member.email || ""
+                )
+                .toLowerCase()
+                .includes(search)
+
+            );
+
+        });
+
+
+    displayMembers(filtered);
 
 }
 
 
-/* =========================================
-   UPDATE MEMBER STATUS
-   ========================================= */
+/* =====================================================
+   MEMBER DETAILS
+===================================================== */
 
-async function updateStatus(id,status){
+function viewMember(id){
 
-    const {
-        error
-    } =
-        await client
-        .from("members")
-        .update({
-
-            status:status,
-
-            updated_at:
-                new Date().toISOString()
-
-        })
-        .eq("id",id);
-
-
-    if(error){
-
-        alert(
-            "Update failed: " +
-            error.message
+    const member =
+        allMembers.find(
+            m =>
+                String(m.id)
+                === String(id)
         );
+
+
+    if(!member){
 
         return;
 
     }
 
 
-    await loadMembers();
-
-}
-
-
-/* =========================================
-   MEMBER DETAILS
-   ========================================= */
-
-function viewMember(id){
-
-    const member =
-        members.find(
-            item => item.id === id
-        );
+    const details =
+        document
+        .getElementById("memberDetails");
 
 
-    if(!member) return;
+    details.innerHTML = `
 
+        <div class="detail">
+            <strong>Registration ID</strong>
+            ${escapeHTML(member.id)}
+        </div>
 
-    const registrationId =
-        "LEO-" +
-        String(member.registration_id)
-            .padStart(4,"0");
+        <div class="detail">
+            <strong>Full Name</strong>
+            ${escapeHTML(member.full_name)}
+        </div>
 
+        <div class="detail">
+            <strong>Date of Birth</strong>
+            ${escapeHTML(member.dob || "")}
+        </div>
 
-    document
-        .getElementById("memberDetails")
-        .innerHTML = `
+        <div class="detail">
+            <strong>Gender</strong>
+            ${escapeHTML(member.gender || "")}
+        </div>
 
-            <div class="detail">
-                <strong>Registration ID:</strong>
-                ${registrationId}
-            </div>
+        <div class="detail">
+            <strong>Mobile</strong>
+            ${escapeHTML(member.phone || "")}
+        </div>
 
-            <div class="detail">
-                <strong>Name:</strong>
-                ${escapeHTML(member.full_name)}
-            </div>
+        <div class="detail">
+            <strong>WhatsApp</strong>
+            ${escapeHTML(member.whatsapp || "")}
+        </div>
 
-            <div class="detail">
-                <strong>Date of Birth:</strong>
-                ${escapeHTML(member.date_of_birth || "")}
-            </div>
+        <div class="detail">
+            <strong>Email</strong>
+            ${escapeHTML(member.email || "")}
+        </div>
 
-            <div class="detail">
-                <strong>Gender:</strong>
-                ${escapeHTML(member.gender || "")}
-            </div>
+        <div class="detail">
+            <strong>School / University</strong>
+            ${escapeHTML(member.school || "")}
+        </div>
 
-            <div class="detail">
-                <strong>Mobile:</strong>
-                ${escapeHTML(member.mobile)}
-            </div>
+        <div class="detail">
+            <strong>Grade / Course</strong>
+            ${escapeHTML(member.course || "")}
+        </div>
 
-            <div class="detail">
-                <strong>WhatsApp:</strong>
-                ${escapeHTML(member.whatsapp || "")}
-            </div>
+        <div class="detail">
+            <strong>Leo Status</strong>
+            ${escapeHTML(member.leo_status || "")}
+        </div>
 
-            <div class="detail">
-                <strong>Email:</strong>
-                ${escapeHTML(member.email || "")}
-            </div>
+        <div class="detail">
+            <strong>Guardian</strong>
+            ${escapeHTML(member.guardian || "")}
+        </div>
 
-            <div class="detail">
-                <strong>School / University:</strong>
-                ${escapeHTML(member.school)}
-            </div>
+        <div class="detail">
+            <strong>Emergency Contact</strong>
+            ${escapeHTML(member.emergency || "")}
+        </div>
 
-            <div class="detail">
-                <strong>Grade / Course:</strong>
-                ${escapeHTML(member.course || "")}
-            </div>
+        <div class="detail">
+            <strong>Status</strong>
+            ${escapeHTML(member.status || "Pending")}
+        </div>
 
-            <div class="detail">
-                <strong>Leo Status:</strong>
-                ${escapeHTML(member.leo_status || "")}
-            </div>
+        <div class="detail">
+            <strong>Registered</strong>
+            ${escapeHTML(
+                member.created_at || ""
+            )}
+        </div>
 
-            <div class="detail">
-                <strong>Guardian:</strong>
-                ${escapeHTML(member.guardian_name || "")}
-            </div>
-
-            <div class="detail">
-                <strong>Emergency Contact:</strong>
-                ${escapeHTML(member.emergency_contact || "")}
-            </div>
-
-            <div class="detail">
-                <strong>Status:</strong>
-                ${escapeHTML(member.status)}
-            </div>
-
-        `;
+    `;
 
 
     document
-        .getElementById("memberModal")
-        .style.display = "flex";
+    .getElementById("memberModal")
+    .style.display = "flex";
 
 }
 
-
-/* =========================================
-   CLOSE MODAL
-   ========================================= */
 
 function closeModal(){
 
     document
-        .getElementById("memberModal")
-        .style.display = "none";
+    .getElementById("memberModal")
+    .style.display = "none";
 
 }
 
 
-/* =========================================
-   STATS
-   ========================================= */
-
-function updateStats(){
-
-    document
-        .getElementById("totalMembers")
-        .innerText =
-        members.length;
-
-
-    document
-        .getElementById("pendingMembers")
-        .innerText =
-        members.filter(
-            m => m.status === "Pending"
-        ).length;
-
-
-    document
-        .getElementById("approvedMembers")
-        .innerText =
-        members.filter(
-            m => m.status === "Approved"
-        ).length;
-
-}
-
-
-/* =========================================
+/* =====================================================
    LOGOUT
-   ========================================= */
+===================================================== */
 
 async function logout(){
 
-    await client.auth.signOut();
+    await supabaseClient
+        .auth
+        .signOut();
 
-    currentUser = null;
 
-    members = [];
-
-    showHome();
+    location.reload();
 
 }
 
 
-/* =========================================
-   HTML ESCAPE
-   ========================================= */
+/* =====================================================
+   HTML SECURITY
+===================================================== */
 
 function escapeHTML(value){
 
-    return String(value || "")
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
-/* =========================================
-   START
-   ========================================= */
+/* =====================================================
+   CHECK EXISTING LOGIN
+===================================================== */
 
-(async function(){
+async function checkLogin(){
 
-    const admin =
-        await checkAdmin();
+    const {
+        data
+    } =
+    await supabaseClient
+    .auth
+    .getSession();
 
 
-    if(admin){
+    if(
+        data &&
+        data.session &&
+        data.session.user
+    ){
 
-        await openDashboard();
+        document
+        .getElementById("adminEmailDisplay")
+        .textContent =
+            data.session.user.email;
 
-    }else{
 
-        showHome();
+        hideAllPages();
+
+
+        document
+        .getElementById("dashboardPage")
+        .classList.add("active");
+
+
+        await loadMembers();
 
     }
 
-})();
+}
+
+
+checkLogin();
 
 </script>
 
