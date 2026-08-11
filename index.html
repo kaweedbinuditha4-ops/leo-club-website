@@ -383,6 +383,2037 @@
             padding: 25px;
         }
 
+
+        /* POSTS */
+        .posts-grid {
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:24px;
+        }
+        .post-card {
+            background:#fff; border-radius:16px; overflow:hidden;
+            box-shadow:0 8px 30px rgba(0,0,0,.08);
+            transition:.2s;
+        }
+        .post-card:hover { transform:translateY(-4px); }
+        .post-image { width:100%; height:190px; object-fit:cover; background:#eee; }
+        .post-body { padding:22px; }
+        .post-date { color:#999; font-size:13px; margin-bottom:8px; }
+        .post-body h3 { margin-bottom:10px; font-size:21px; }
+        .post-body p { color:#666; line-height:1.65; white-space:pre-line; }
+        .empty-posts { text-align:center; padding:40px; color:#777; background:#fff; border-radius:15px; }
+        .admin-tabs { display:flex; gap:10px; margin:25px 0; flex-wrap:wrap; }
+        .admin-tab { border:0; padding:12px 18px; border-radius:9px; background:#eee; cursor:pointer; font-weight:700; }
+        .admin-tab.active { background:#f4c430; color:#111; }
+        .admin-panel { display:none; }
+        .admin-panel.active { display:block; }
+        .post-form { background:#fff; padding:28px; border-radius:15px; box-shadow:0 8px 30px rgba(0,0,0,.07); margin-bottom:25px; }
+        .post-form textarea { width:100%; min-height:150px; padding:13px; border:1px solid #ddd; border-radius:7px; resize:vertical; font-size:15px; }
+        .post-form .form-group { margin-bottom:16px; }
+        .post-actions { display:flex; gap:8px; margin-top:15px; flex-wrap:wrap; }
+        .delete-post { border:0; background:#d33; color:#fff; padding:9px 14px; border-radius:7px; cursor:pointer; }
+        .edit-post { border:0; background:#111; color:#fff; padding:9px 14px; border-radius:7px; cursor:pointer; }
+        .admin-post-list { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+        .admin-post-card { background:#fff; border-radius:14px; padding:20px; box-shadow:0 5px 20px rgba(0,0,0,.06); }
+        .post-status { display:inline-block; padding:5px 9px; border-radius:20px; font-size:12px; background:#eee; margin-top:8px; }
+        @media (max-width:700px) {
+            .posts-grid, .admin-post-list { grid-template-columns:1fr; }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 60px 6%;
+            }
+
+            .section {
+                padding: 50px 5%;
+            }
+
+            .form-container,
+            .login-box {
+                padding: 22px;
+            }
+
+            .admin-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        🦁 <span>LEO</span> CLUB
+    </div>
+
+    <nav>
+
+        <button onclick="showHome()">
+            Home
+        </button>
+
+        <button onclick="showRegister()">
+            Register
+        </button>
+
+        <button onclick="showLogin()">
+            Admin
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+<!-- HOME -->
+
+<div id="homePage">
+
+    <section class="hero">
+
+        <div>
+
+            <h1>
+                Be a Part of
+                <span>Something Greater</span>
+            </h1>
+
+            <p>
+                Join our Leo Club and become part of a community
+                dedicated to leadership, friendship and service.
+            </p>
+
+            <button
+                class="btn"
+                onclick="showRegister()"
+            >
+                JOIN THE CLUB →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="section" id="postsSection">
+
+        <div class="section-title">
+            <h2>📰 Latest Leo Club Posts</h2>
+            <p>News, events and updates from our Leo Club.</p>
+        </div>
+
+        <div id="homePosts" class="posts-grid">
+            <div class="empty-posts">Loading posts...</div>
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>
+                Why Join Our Leo Club?
+            </h2>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="card">
+
+                <div class="icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Make Friends
+                </h3>
+
+                <p>
+                    Meet new people and build strong friendships.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🌱
+                </div>
+
+                <h3>
+                    Serve Community
+                </h3>
+
+                <p>
+                    Take part in meaningful community projects.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Build Leadership
+                </h3>
+
+                <p>
+                    Develop leadership and teamwork skills.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- REGISTRATION -->
+
+<div
+    id="registerPage"
+    class="hidden"
+>
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>
+                📝 Member Registration
+            </h2>
+
+            <p>
+                Fill in the details below.
+            </p>
+
+        </div>
+
+
+        <div class="form-container">
+
+            <form id="registrationForm">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Date of Birth *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Gender
+                    </label>
+
+                    <select id="gender">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                        <option value="Prefer not to say">
+                            Prefer not to say
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Mobile Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        WhatsApp Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="whatsapp"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        School / University *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="school"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Grade / Course
+                    </label>
+
+                    <input
+                        type="text"
+                        id="course"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Leo Status
+                    </label>
+
+                    <select id="leo">
+
+                        <option value="New Member">
+                            New Member
+                        </option>
+
+                        <option value="Existing Leo">
+                            Existing Leo
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Parent / Guardian Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="guardian"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Emergency Contact Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="emergency"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="consent"
+                            required
+                        >
+
+                        <span>
+                            I confirm that the information provided
+                            is correct.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    class="submit-btn"
+                    type="submit"
+                    id="submitButton"
+                >
+                    SUBMIT REGISTRATION
+                </button>
+
+            </form>
+
+
+            <div
+                class="success"
+                id="success"
+            >
+
+                <div class="success-icon">
+                    ✅
+                </div>
+
+                <h2>
+                    Registration Successful!
+                </h2>
+
+                <p>
+                    Your registration has been received.
+                </p>
+
+                <br>
+
+                <strong id="registrationID"></strong>
+
+                <br><br>
+
+                <button
+                    class="btn"
+                    onclick="showHome()"
+                >
+                    Back to Home
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ADMIN LOGIN -->
+
+<div
+    id="loginPage"
+    class="hidden"
+>
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>
+                🔐 Admin Login
+            </h2>
+
+            <p>
+                Authorized administrators only.
+            </p>
+
+        </div>
+
+
+        <div class="login-box">
+
+            <h2>
+                Leo Club Admin
+            </h2>
+
+            <br>
+
+            <form id="loginForm">
+
+                <input
+                    type="email"
+                    id="adminEmail"
+                    placeholder="Admin Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Password"
+                    required
+                >
+
+                <button
+                    class="login-btn"
+                    type="submit"
+                >
+                    LOGIN
+                </button>
+
+            </form>
+
+            <p
+                class="error"
+                id="loginError"
+            ></p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ADMIN DASHBOARD -->
+
+<div
+    id="adminPage"
+    class="hidden"
+>
+
+    <section class="section">
+
+        <div class="admin-top">
+
+            <div>
+
+                <h2>
+                    🦁 Admin Dashboard
+                </h2>
+
+                <p id="adminEmailDisplay"></p>
+
+            </div>
+
+
+            <button
+                class="logout"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-cards">
+
+            <div class="stat">
+
+                <h3>
+                    Total Members
+                </h3>
+
+                <strong id="totalMembers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    Pending
+                </h3>
+
+                <strong id="pendingMembers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    Approved
+                </h3>
+
+                <strong id="approvedMembers">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-tabs">
+            <button class="admin-tab active" id="membersTab" onclick="showAdminPanel('membersPanel', this)">👥 Members</button>
+            <button class="admin-tab" id="postsTab" onclick="showAdminPanel('postsPanel', this)">📰 Posts</button>
+        </div>
+
+        <div id="membersPanel" class="admin-panel active">
+
+        <input
+            class="search"
+            id="search"
+            placeholder="🔍 Search members..."
+            oninput="filterMembers()"
+        >
+
+
+        <div class="table-box">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Name
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                        <th>
+                            School
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="memberTable"></tbody>
+
+            </table>
+
+        </div>
+
+
+        </div>
+
+        <div id="postsPanel" class="admin-panel">
+            <div class="post-form">
+                <h2 id="postFormTitle">➕ Add New Post</h2>
+                <p style="color:#777;margin:8px 0 20px">Create a post here and choose whether it should appear on the Home page.</p>
+                <form id="postForm">
+                    <input type="hidden" id="postId">
+                    <div class="form-group">
+                        <label>Post Title *</label>
+                        <input type="text" id="postTitle" required placeholder="e.g. Community Cleaning Project">
+                    </div>
+                    <div class="form-group">
+                        <label>Post Content *</label>
+                        <textarea id="postContent" required placeholder="Write your announcement, event details or club update..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL (optional)</label>
+                        <input type="url" id="postImage" placeholder="https://example.com/photo.jpg">
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox"><input type="checkbox" id="postPublished" checked><span>Publish this post on the Home page</span></label>
+                    </div>
+                    <div class="post-actions">
+                        <button class="submit-btn" type="submit" style="width:auto;padding:12px 20px" id="postSubmitBtn">ADD POST</button>
+                        <button type="button" class="edit-post hidden" id="cancelEditBtn" onclick="cancelPostEdit()">Cancel Edit</button>
+                    </div>
+                    <p class="error" id="postError"></p>
+                </form>
+            </div>
+            <div class="section-title" style="text-align:left;margin-bottom:18px">
+                <h2>📚 Manage Posts</h2>
+                <p>Edit, publish/unpublish or delete website posts.</p>
+            </div>
+            <div id="adminPosts" class="admin-post-list">
+                <div class="empty-posts">Loading posts...</div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</main>
+
+
+<!-- MEMBER MODAL -->
+
+<div
+    class="modal"
+    id="memberModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+            ✕
+        </button>
+
+        <h2>
+            Member Details
+        </h2>
+
+        <br>
+
+        <div id="memberDetails"></div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    🦁 Leo Club © 2026 |
+    Together We Serve
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   SUPABASE CONFIGURATION
+========================================= */
+const SUPABASE_URL =
+    "https://hxaqbnogyqzzfewgtdgd.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_z1F0WgdC5WBtIFO9BGIpaw_dcjDyhXj";
+
+   
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+/* =========================================
+   PAGE NAVIGATION
+========================================= */
+
+function hideAllPages() {
+
+    document
+        .getElementById("homePage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("registerPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("loginPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("adminPage")
+        .classList.add("hidden");
+}
+
+
+function showHome() {
+
+    hideAllPages();
+
+    document
+        .getElementById("homePage")
+        .classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+}
+
+
+function showRegister() {
+
+    hideAllPages();
+
+    document
+        .getElementById("registerPage")
+        .classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+}
+
+
+function showLogin() {
+
+    hideAllPages();
+
+    document
+        .getElementById("loginPage")
+        .classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+}
+
+function showAdminPanel(panelId, button) {
+    document.querySelectorAll(".admin-panel").forEach(p => p.classList.remove("active"));
+    document.querySelectorAll(".admin-tab").forEach(b => b.classList.remove("active"));
+    document.getElementById(panelId).classList.add("active");
+    button.classList.add("active");
+    if (panelId === "postsPanel") loadPosts(true);
+}
+
+
+/* =========================================
+   REGISTRATION
+========================================= */
+
+document
+    .getElementById("registrationForm")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+
+        const button =
+            document.getElementById("submitButton");
+
+
+        button.disabled = true;
+
+        button.textContent =
+            "SUBMITTING...";
+
+
+        const memberData = {
+
+            name:
+                document.getElementById("name")
+                    .value
+                    .trim(),
+
+            dob:
+                document.getElementById("dob")
+                    .value,
+
+            gender:
+                document.getElementById("gender")
+                    .value || null,
+
+            phone:
+                document.getElementById("phone")
+                    .value
+                    .trim(),
+
+            whatsapp:
+                document.getElementById("whatsapp")
+                    .value
+                    .trim() || null,
+
+            email:
+                document.getElementById("email")
+                    .value
+                    .trim() || null,
+
+            school:
+                document.getElementById("school")
+                    .value
+                    .trim(),
+
+            course:
+                document.getElementById("course")
+                    .value
+                    .trim() || null,
+
+            leo:
+                document.getElementById("leo")
+                    .value,
+
+            guardian:
+                document.getElementById("guardian")
+                    .value
+                    .trim() || null,
+
+            emergency:
+                document.getElementById("emergency")
+                    .value
+                    .trim() || null,
+
+            status:
+                "Pending"
+        };
+
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("members")
+            .insert([memberData])
+            .select()
+            .single();
+
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "Registration Error:\n\n" +
+                error.message
+            );
+
+            button.disabled = false;
+
+            button.textContent =
+                "SUBMIT REGISTRATION";
+
+            return;
+        }
+
+
+        document
+            .getElementById("registrationForm")
+            .style.display = "none";
+
+
+        document
+            .getElementById("success")
+            .style.display = "block";
+
+
+        document
+            .getElementById("registrationID")
+            .textContent =
+            "Registration ID: " + data.id;
+
+
+        button.disabled = false;
+
+    });
+
+
+/* =========================================
+   ADMIN LOGIN
+========================================= */
+
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document
+                .getElementById("adminEmail")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("adminPassword")
+                .value;
+
+
+        const errorBox =
+            document.getElementById("loginError");
+
+
+        errorBox.textContent =
+            "Logging in...";
+
+
+        const {
+            data,
+            error
+        } = await supabaseClient.auth.signInWithPassword({
+
+            email: email,
+
+            password: password
+
+        });
+
+
+        if (error) {
+
+            errorBox.textContent =
+                error.message;
+
+            return;
+        }
+
+
+        errorBox.textContent = "";
+
+
+        document
+            .getElementById("adminEmailDisplay")
+            .textContent =
+            data.user.email;
+
+
+        await loadMembers();
+        await loadPosts(true);
+
+        hideAllPages();
+
+        document
+            .getElementById("adminPage")
+            .classList.remove("hidden");
+
+    });
+
+
+/* =========================================
+   LOAD MEMBERS
+========================================= */
+
+let allMembers = [];
+let allPosts = [];
+
+
+async function loadMembers() {
+
+    const {
+        data,
+        error
+    } = await supabaseClient
+        .from("members")
+        .select("*")
+        .order("created_at", {
+            ascending: false
+        });
+
+
+    if (error) {
+
+        console.error(error);
+
+        alert(
+            "Could not load members:\n\n" +
+            error.message
+        );
+
+        return;
+    }
+
+
+    allMembers = data || [];
+
+
+    updateStats();
+
+    renderMembers(allMembers);
+
+}
+
+
+/* =========================================
+   POSTS - PUBLIC HOME + ADMIN
+========================================= */
+async function loadPosts(adminMode = false) {
+    let query = supabaseClient.from("posts").select("*").order("created_at", { ascending: false });
+    if (!adminMode) query = query.eq("published", true);
+
+    const { data, error } = await query;
+    if (error) {
+        console.error("Posts error:", error);
+        if (adminMode) document.getElementById("adminPosts").innerHTML = '<div class="empty-posts">Could not load posts: ' + escapeHTML(error.message) + '</div>';
+        else document.getElementById("homePosts").innerHTML = '<div class="empty-posts">Posts are not available right now.</div>';
+        return;
+    }
+
+    if (adminMode) {
+        allPosts = data || [];
+        renderAdminPosts(allPosts);
+    } else {
+        renderHomePosts(data || []);
+    }
+}
+
+function formatPostDate(date) {
+    if (!date) return "";
+    return new Date(date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+}
+
+function renderHomePosts(posts) {
+    const box = document.getElementById("homePosts");
+    if (!posts.length) { box.innerHTML = '<div class="empty-posts">No posts yet. Check back soon! 🦁</div>'; return; }
+    box.innerHTML = posts.map(post => `
+        <article class="post-card">
+            ${post.image_url ? `<img class="post-image" src="${escapeHTML(post.image_url)}" alt="${escapeHTML(post.title)}" onerror="this.style.display='none'">` : ''}
+            <div class="post-body">
+                <div class="post-date">${formatPostDate(post.created_at)}</div>
+                <h3>${escapeHTML(post.title)}</h3>
+                <p>${escapeHTML(post.content)}</p>
+            </div>
+        </article>
+    `).join("");
+}
+
+function renderAdminPosts(posts) {
+    const box = document.getElementById("adminPosts");
+    if (!posts.length) { box.innerHTML = '<div class="empty-posts">No posts added yet.</div>'; return; }
+    box.innerHTML = posts.map(post => `
+        <div class="admin-post-card">
+            ${post.image_url ? `<img class="post-image" src="${escapeHTML(post.image_url)}" alt="" style="height:150px;border-radius:10px">` : ''}
+            <div class="post-date">${formatPostDate(post.created_at)}</div>
+            <h3>${escapeHTML(post.title)}</h3>
+            <p style="color:#666;line-height:1.6;white-space:pre-line;margin-top:8px">${escapeHTML(post.content)}</p>
+            <span class="post-status">${post.published ? '🟢 Published' : '⚪ Draft'}</span>
+            <div class="post-actions">
+                <button class="edit-post" onclick="editPost('${post.id}')">✏️ Edit</button>
+                <button class="delete-post" onclick="deletePost('${post.id}')">🗑 Delete</button>
+            </div>
+        </div>
+    `).join("");
+}
+
+document.getElementById("postForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const errorBox = document.getElementById("postError");
+    const button = document.getElementById("postSubmitBtn");
+    errorBox.textContent = "";
+    button.disabled = true;
+    button.textContent = "SAVING...";
+
+    const postId = document.getElementById("postId").value;
+    const postData = {
+        title: document.getElementById("postTitle").value.trim(),
+        content: document.getElementById("postContent").value.trim(),
+        image_url: document.getElementById("postImage").value.trim() || null,
+        published: document.getElementById("postPublished").checked
+    };
+
+    const result = postId
+        ? await supabaseClient.from("posts").update(postData).eq("id", postId)
+        : await supabaseClient.from("posts").insert([postData]);
+
+    if (result.error) {
+        errorBox.textContent = result.error.message;
+        button.disabled = false;
+        button.textContent = postId ? "UPDATE POST" : "ADD POST";
+        return;
+    }
+
+    resetPostForm();
+    await loadPosts(true);
+    await loadPosts(false);
+    alert(postId ? "Post updated successfully!" : "Post added successfully!");
+});
+
+function editPost(id) {
+    const post = allPosts.find(p => String(p.id) === String(id));
+    if (!post) return;
+    document.getElementById("postId").value = post.id;
+    document.getElementById("postTitle").value = post.title || "";
+    document.getElementById("postContent").value = post.content || "";
+    document.getElementById("postImage").value = post.image_url || "";
+    document.getElementById("postPublished").checked = !!post.published;
+    document.getElementById("postFormTitle").textContent = "✏️ Edit Post";
+    document.getElementById("postSubmitBtn").textContent = "UPDATE POST";
+    document.getElementById("cancelEditBtn").classList.remove("hidden");
+    document.getElementById("postsPanel").scrollIntoView({ behavior: "smooth" });
+}
+
+function resetPostForm() {
+    document.getElementById("postForm").reset();
+    document.getElementById("postId").value = "";
+    document.getElementById("postPublished").checked = true;
+    document.getElementById("postFormTitle").textContent = "➕ Add New Post";
+    document.getElementById("postSubmitBtn").textContent = "ADD POST";
+    document.getElementById("cancelEditBtn").classList.add("hidden");
+}
+
+function cancelPostEdit() { resetPostForm(); }
+
+async function deletePost(id) {
+    const post = allPosts.find(p => String(p.id) === String(id));
+    if (!post || !confirm(`Delete post "${post.title}"?`)) return;
+    const { error } = await supabaseClient.from("posts").delete().eq("id", id);
+    if (error) { alert("Delete Error:\n\n" + error.message); return; }
+    await loadPosts(true);
+    await loadPosts(false);
+}
+
+}
+
+
+/* =========================================
+   DASHBOARD STATS
+========================================= */
+
+function updateStats() {
+
+    const total =
+        allMembers.length;
+
+
+    const pending =
+        allMembers.filter(
+            member =>
+                member.status === "Pending"
+        ).length;
+
+
+    const approved =
+        allMembers.filter(
+            member =>
+                member.status === "Approved"
+        ).length;
+
+
+    document
+        .getElementById("totalMembers")
+        .textContent = total;
+
+
+    document
+        .getElementById("pendingMembers")
+        .textContent = pending;
+
+
+    document
+        .getElementById("approvedMembers")
+        .textContent = approved;
+
+}
+
+
+/* =========================================
+   RENDER MEMBERS
+========================================= */
+
+function renderMembers(members) {
+
+    const table =
+        document.getElementById("memberTable");
+
+
+    table.innerHTML = "";
+
+
+    if (!members.length) {
+
+        table.innerHTML = `
+            <tr>
+                <td colspan="6">
+                    No members found.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+
+    members.forEach(member => {
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>
+                ${escapeHTML(member.id)}
+            </td>
+
+            <td>
+                ${escapeHTML(member.name)}
+            </td>
+
+            <td>
+                ${escapeHTML(member.phone)}
+            </td>
+
+            <td>
+                ${escapeHTML(member.school)}
+            </td>
+
+            <td>
+                ${escapeHTML(member.status)}
+            </td>
+
+            <td>
+
+                <button
+                    class="action-btn view-btn"
+                    onclick="viewMember(${member.id})"
+                >
+                    View
+                </button>
+
+                ${
+                    member.status !== "Approved"
+                    ?
+                    `
+                    <button
+                        class="action-btn approve-btn"
+                        onclick="updateStatus(${member.id}, 'Approved')"
+                    >
+                        Approve
+                    </button>
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    member.status !== "Rejected"
+                    ?
+                    `
+                    <button
+                        class="action-btn reject-btn"
+                        onclick="updateStatus(${member.id}, 'Rejected')"
+                    >
+                        Reject
+                    </button>
+                    `
+                    :
+                    ""
+                }
+
+            </td>
+
+        `;
+
+
+        table.appendChild(row);
+
+    });
+
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+function filterMembers() {
+
+    const search =
+        document
+            .getElementById("search")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    const filtered =
+        allMembers.filter(member =>
+
+            String(member.id)
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            (member.name || "")
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            (member.phone || "")
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            (member.school || "")
+                .toLowerCase()
+                .includes(search)
+
+        );
+
+
+    renderMembers(filtered);
+
+}
+
+
+/* =========================================
+   VIEW MEMBER
+========================================= */
+
+function viewMember(id) {
+
+    const member =
+        allMembers.find(
+            item =>
+                Number(item.id) === Number(id)
+        );
+
+
+    if (!member) return;
+
+
+    const details =
+        document.getElementById("memberDetails");
+
+
+    details.innerHTML = `
+
+        <div class="detail-row">
+            <strong>ID:</strong>
+            ${escapeHTML(member.id)}
+        </div>
+
+        <div class="detail-row">
+            <strong>Full Name:</strong>
+            ${escapeHTML(member.name)}
+        </div>
+
+        <div class="detail-row">
+            <strong>Date of Birth:</strong>
+            ${escapeHTML(member.dob)}
+        </div>
+
+        <div class="detail-row">
+            <strong>Gender:</strong>
+            ${escapeHTML(member.gender || "-")}
+        </div>
+
+        <div class="detail-row">
+            <strong>Phone:</strong>
+            ${escapeHTML(member.phone)}
+        </div>
+
+        <div class="detail-row">
+            <strong>WhatsApp:</strong>
+            ${escapeHTML(member.whatsapp || "-")}
+        </div>
+
+        <div class="detail-row">
+            <strong>Email:</strong>
+            ${escapeHTML(member.email || "-")}
+        </div>
+
+        <div class="detail-row">
+            <strong>School:</strong>
+            ${escapeHTML(member.school)}
+        </div>
+
+        <div class="detail-row">
+            <strong>Course:</strong>
+            ${escapeHTML(member.course || "-")}
+        </div>
+
+        <div class="detail-row">
+            <strong>Leo Status:</strong>
+            ${escapeHTML(member.leo || "-")}
+        </div>
+
+        <div class="detail-row">
+            <strong>Guardian:</strong>
+            ${escapeHTML(member.guardian || "-")}
+        </div>
+
+        <div class="detail-row">
+            <strong>Emergency:</strong>
+            ${escapeHTML(member.emergency || "-")}
+        </div>
+
+        <div class="detail-row">
+            <strong>Status:</strong>
+            ${escapeHTML(member.status || "-")}
+        </div>
+
+    `;
+
+
+    document
+        .getElementById("memberModal")
+        .style.display = "flex";
+
+}
+
+
+/* =========================================
+   CLOSE MODAL
+========================================= */
+
+function closeModal() {
+
+    document
+        .getElementById("memberModal")
+        .style.display = "none";
+
+}
+
+
+/* =========================================
+   UPDATE STATUS
+========================================= */
+
+async function updateStatus(id, status) {
+
+    const {
+        error
+    } = await supabaseClient
+        .from("members")
+        .update({
+            status: status
+        })
+        .eq("id", id);
+
+
+    if (error) {
+
+        alert(
+            "Update Error:\n\n" +
+            error.message
+        );
+
+        return;
+    }
+
+
+    await loadMembers();
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+async function logout() {
+
+    await supabaseClient.auth.signOut();
+
+    document
+        .getElementById("adminPage")
+        .classList.add("hidden");
+
+    showHome();
+
+}
+
+
+/* =========================================
+   HTML SECURITY
+========================================= */
+
+function escapeHTML(value) {
+
+    if (value === null || value === undefined) {
+        return "";
+    }
+
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================
+   MODAL CLICK OUTSIDE
+========================================= */
+
+document
+    .getElementById("memberModal")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeModal();
+        }
+
+    });
+
+
+/* =========================================
+   CHECK EXISTING LOGIN
+========================================= */
+
+async function checkLogin() {
+
+    const {
+        data
+    } = await supabaseClient.auth.getSession();
+
+
+    if (
+        data &&
+        data.session &&
+        data.session.user
+    ) {
+
+        document
+            .getElementById("adminEmailDisplay")
+            .textContent =
+            data.session.user.email;
+
+
+        await loadMembers();
+        await loadPosts(true);
+
+        hideAllPages();
+
+        document
+            .getElementById("adminPage")
+            .classList.remove("hidden");
+
+    }
+
+}
+
+
+loadPosts(false);
+checkLogin();
+
+</script>
+
+</body>
+
+</html>
+```            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f5c400;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav button,
+        .btn,
+        .submit-btn,
+        .login-btn,
+        .logout {
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            padding: 12px 18px;
+            font-weight: bold;
+        }
+
+        nav button {
+            background: transparent;
+            color: white;
+        }
+
+        nav button:hover {
+            background: #f5c400;
+            color: #111;
+        }
+
+        .hero {
+            min-height: 500px;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.65),
+                    rgba(0,0,0,.65)
+                ),
+                linear-gradient(135deg, #111, #444);
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+
+            padding: 70px 8%;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 72px);
+            max-width: 800px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #f5c400;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 25px 0;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            background: #f5c400;
+            color: #111;
+        }
+
+        .section {
+            padding: 70px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.08);
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .form-container,
+        .login-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.08);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #f5c400;
+        }
+
+        .checkbox {
+            display: flex !important;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .checkbox input {
+            width: auto;
+            margin-top: 3px;
+        }
+
+        .submit-btn,
+        .login-btn {
+            width: 100%;
+            background: #111;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover,
+        .login-btn:hover {
+            background: #f5c400;
+            color: #111;
+        }
+
+        .success {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .login-box {
+            max-width: 450px;
+        }
+
+        .login-box input {
+            margin-bottom: 15px;
+        }
+
+        .error {
+            color: #d00000;
+            margin-top: 15px;
+        }
+
+        .admin-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logout {
+            background: #d00000;
+            color: white;
+        }
+
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.07);
+        }
+
+        .stat h3 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .stat strong {
+            font-size: 35px;
+        }
+
+        .search {
+            margin-bottom: 20px;
+        }
+
+        .table-box {
+            background: white;
+            overflow-x: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.07);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #111;
+            color: white;
+        }
+
+        .action-btn {
+            padding: 7px 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 2px;
+        }
+
+        .view-btn {
+            background: #222;
+            color: white;
+        }
+
+        .approve-btn {
+            background: #198754;
+            color: white;
+        }
+
+        .reject-btn {
+            background: #dc3545;
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.65);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal-box {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            border: none;
+            background: #eee;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .detail-row {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-row strong {
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
         .hidden {
             display: none !important;
         }
