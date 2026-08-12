@@ -616,6 +616,400 @@ footer strong{color:var(--gold)}
     }
 
   }
+  
+
+        
+/* =========================
+   PREMIUM IMPACT SECTION
+========================= */
+
+.impact-section {
+    position: relative;
+    padding: 120px 7%;
+    overflow: hidden;
+}
+
+
+/* Background glow */
+
+.impact-section::before {
+    content: "";
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    top: -150px;
+    left: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.14),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+.impact-heading {
+    position: relative;
+
+    max-width: 750px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+}
+
+
+.impact-tag {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #d4af37;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+}
+
+
+.impact-heading h2 {
+    margin: 0;
+
+    font-size:
+        clamp(38px, 5vw, 64px);
+
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    color: #fff;
+}
+
+
+.impact-heading h2 span {
+    display: block;
+
+    color: #d4af37;
+}
+
+
+.impact-heading p {
+    max-width: 620px;
+
+    margin: 22px auto 0;
+
+    color: #9ca3af;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+}
+
+
+/* GRID */
+
+.impact-grid {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+
+/* CARD */
+
+.impact-card {
+
+    position: relative;
+
+    padding: 35px 28px;
+
+    min-height: 310px;
+
+    overflow: hidden;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        transform .45s ease,
+        border-color .45s ease,
+        box-shadow .45s ease;
+}
+
+
+.impact-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    right: -70px;
+    bottom: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(212,175,55,.08);
+
+    transition:
+        transform .5s ease;
+}
+
+
+.impact-card:hover {
+
+    transform:
+        translateY(-12px);
+
+    border-color:
+        rgba(212,175,55,.5);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.35);
+}
+
+
+.impact-card:hover::after {
+
+    transform:
+        scale(2.2);
+}
+
+
+/* ICON */
+
+.impact-icon {
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background:
+        rgba(212,175,55,.10);
+
+    border:
+        1px solid
+        rgba(212,175,55,.25);
+
+    font-size: 27px;
+
+    margin-bottom: 28px;
+
+    transition:
+        transform .4s ease;
+}
+
+
+.impact-card:hover
+.impact-icon {
+
+    transform:
+        rotate(-6deg)
+        scale(1.08);
+}
+
+
+/* NUMBER */
+
+.impact-number {
+
+    color: #d4af37;
+
+    font-size: 43px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    margin-bottom: 14px;
+}
+
+
+.impact-card h3 {
+
+    color: #fff;
+
+    font-size: 19px;
+
+    margin: 0 0 12px;
+}
+
+
+.impact-card p {
+
+    color: #9ca3af;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* LINE */
+
+.impact-line {
+
+    position: absolute;
+
+    left: 28px;
+    right: 28px;
+
+    bottom: 22px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.5),
+            transparent
+        );
+}
+
+
+/* QUOTE */
+
+.impact-quote {
+
+    max-width: 850px;
+
+    margin: 80px auto 0;
+
+    padding: 40px;
+
+    position: relative;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+
+.impact-quote p {
+
+    margin: 0;
+
+    color: #ddd;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    font-style: italic;
+}
+
+
+.quote-mark {
+
+    color: #d4af37;
+
+    font-size: 60px;
+
+    font-family: Georgia, serif;
+
+    line-height: .5;
+
+    vertical-align: middle;
+}
+
+
+.quote-right {
+    margin-left: 8px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 1050px) {
+
+    .impact-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .impact-section {
+
+        padding: 80px 5%;
+    }
+
+    .impact-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .impact-card {
+
+        min-height: 280px;
+    }
+
+    .impact-quote {
+
+        padding: 30px 22px;
+    }
+
+    .impact-quote p {
+
+        font-size: 16px;
+    }
+
+  }
+            
 </style>
 </head>
 
@@ -1027,6 +1421,153 @@ footer strong{color:var(--gold)}
     </div>
 
   </div>
+  <!-- =========================
+     OUR IMPACT SECTION
+========================= -->
+
+<section class="impact-section">
+
+    <div class="impact-heading">
+
+        <span class="impact-tag">
+            ✦ OUR JOURNEY
+        </span>
+
+        <h2>
+            Small Actions.
+            <span>Big Impact.</span>
+        </h2>
+
+        <p>
+            Together, we learn, serve and create meaningful
+            change in our school and community.
+        </p>
+
+    </div>
+
+
+    <div class="impact-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="impact-card">
+
+            <div class="impact-icon">
+                🌱
+            </div>
+
+            <div class="impact-number">
+                25+
+            </div>
+
+            <h3>
+                Community Projects
+            </h3>
+
+            <p>
+                Working together to create positive
+                change in our community.
+            </p>
+
+            <div class="impact-line"></div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div class="impact-card">
+
+            <div class="impact-icon">
+                🤝
+            </div>
+
+            <div class="impact-number">
+                100+
+            </div>
+
+            <h3>
+                Members & Volunteers
+            </h3>
+
+            <p>
+                Young people joining together with
+                friendship and purpose.
+            </p>
+
+            <div class="impact-line"></div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div class="impact-card">
+
+            <div class="impact-icon">
+                🏆
+            </div>
+
+            <div class="impact-number">
+                15+
+            </div>
+
+            <h3>
+                Special Achievements
+            </h3>
+
+            <p>
+                Celebrating the dedication and effort
+                of our Leo members.
+            </p>
+
+            <div class="impact-line"></div>
+
+        </div>
+
+
+        <!-- CARD 4 -->
+
+        <div class="impact-card">
+
+            <div class="impact-icon">
+                💚
+            </div>
+
+            <div class="impact-number">
+                ∞
+            </div>
+
+            <h3>
+                Dreams & Possibilities
+            </h3>
+
+            <p>
+                Building a future where every small
+                action can make a difference.
+            </p>
+
+            <div class="impact-line"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="impact-quote">
+
+        <span class="quote-mark">“</span>
+
+        <p>
+            Leadership is not about being the best.
+            It is about bringing out the best in others.
+        </p>
+
+        <span class="quote-mark quote-right">”</span>
+
+    </div>
+
+</section>
 
 <!-- REGISTER -->
 <section id="registerPage" class="page hidden">
